@@ -7,6 +7,19 @@ set fileencoding=utf-8
 "Display numbers
 set number
 
+"Highlight searches
+set hlsearch
+
+"Spell Checking
+set spell spelllang=en_us
+
+"OmniComplete
+set omnifunc=syntaxcomplete#Complete
+
+"AutoIndent
+set autoindent
+set smartindent
+
 " Disable wrapping, and set horizontal scroll
 set nowrap
 
