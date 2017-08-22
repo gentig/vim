@@ -31,3 +31,15 @@ endif
 "set noeol
 autocmd BufWritePre *.php set binary
 set background=dark
+
+"PHP dev configuration
+"======================
+"Save php files in fileformat DOS. Not recomended all the
+"time but sometimes we need to conform to the working rules, such as 
+"the end of the line in my case. We need CRLF for the files to avoid unnecesary SVN conflicts.
+autocmd FileType php noremap! <C-s> <Esc> :w ++ff=dos <CR>
+autocmd FileType php nnoremap <C-s> <Esc> :w ++ff=dos <CR>
+"I need <C-z> for stopping jobs not for undo, find other mapping for undo
+"------------------------------------------------------------------------
+"autocmd FileType php noremap! <C-z> <Esc> :u <CR> 
+"autocmd FileType php nnoremap <C-z> <Esc> :u <CR>
