@@ -6,6 +6,10 @@ colorscheme elflord
 set encoding=utf-8
 set fileencoding=utf-8
 
+"Show normal mode commands
+"-------------------------
+set showcmd
+
 "Display numbers
 "---------------
 set number
