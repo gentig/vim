@@ -1,3 +1,6 @@
+"Automatic reloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
 "colors elflord
 "--------------
 colorscheme elflord
@@ -13,6 +16,12 @@ set showcmd
 "Display numbers
 "---------------
 set number
+
+"Copy & paste settings
+set clipboard=unnamed
+
+"Set backspace to function normally (It works here as it should without this)
+"set bs=2
 
 "Highlight searches
 "------------------
@@ -39,6 +48,7 @@ set smartindent
 set nowrap
 
 "Set tab spaces
+
 "--------------
 "set tabstop=2
 set shiftwidth=4
