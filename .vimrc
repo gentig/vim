@@ -1,6 +1,12 @@
 "Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+"Leader key
+let mapleader=","
+"Moving on tabs with 
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
 "colors elflord
 "--------------
 colorscheme elflord
@@ -43,6 +49,9 @@ set omnifunc=syntaxcomplete#Complete
 set autoindent
 set smartindent
 
+"Indent multiple times without loosing selection
+vnoremap < <gv
+vnoremap > >gv
 "Disable wrapping, and set horizontal scroll
 "--------------------------------------------
 set nowrap
