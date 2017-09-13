@@ -1,3 +1,22 @@
+"***********************************************************
+"Using Vundle plugin manager
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+"Plugins
+Plugin '2072/PHP-Indenting-for-VIm'
+"End Plugins
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+"***********************************************************
+
 "Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
@@ -22,6 +41,11 @@ set showcmd
 "Display numbers
 "---------------
 set number
+
+"filetypes
+"filetype on	    " Enable filetype detection
+"filetype indent on  " Enable filetype-specific indenting
+"filetype plugin on  " Enable filetype-specific plugins
 
 "Copy & paste settings
 set clipboard=unnamed
