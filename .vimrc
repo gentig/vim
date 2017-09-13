@@ -16,6 +16,8 @@ Plugin '2072/PHP-Indenting-for-VIm'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "***********************************************************
+"Prevent preview window to open for Ctrl-x Ctrl-o
+set completeopt-=preview
 
 "Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
