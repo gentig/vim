@@ -24,10 +24,12 @@ autocmd! bufwritepost .vimrc source %
 
 "Leader key
 let mapleader=","
-"Moving on tabs with 
+"Moving on tabs 1 
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
-
+"Moving on tabs 2
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 "colors elflord
 "--------------
 colorscheme elflord
