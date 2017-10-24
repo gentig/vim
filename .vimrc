@@ -11,6 +11,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Plugins
 Plugin '2072/PHP-Indenting-for-VIm'
+"The two plugins below work with each other for clipboard interaction,
+"but if vim was not compiled with clipboard support they don't work. 
+"Plugin 'svermeulen/vim-easyclip'
+"Plugin 'tpope/vim-repeat'
 "End Plugins
 
 call vundle#end()            " required
@@ -24,15 +28,18 @@ autocmd! bufwritepost .vimrc source %
 
 "Leader key
 let mapleader=","
+
 "Moving on tabs 1 
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 "Moving on tabs 2
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
 "colors elflord
 "--------------
 colorscheme elflord
+
 "Encoding
 "--------------
 set encoding=utf-8
@@ -125,3 +132,14 @@ autocmd FileType php nnoremap ww <Esc> :w ++ff=dos <CR>
 "------------------------------------------------------------------------
 "autocmd FileType php noremap! <C-z> <Esc> :u <CR> 
 "autocmd FileType php nnoremap <C-z> <Esc> :u <CR>
+
+"This is the directory that .swp files will be stored
+"This way I avoid having .swp files all over the place.
+">>>>!!!!!!!!! IMPORTANT !!!!!!!!!!<<<<
+"This backup path is for subversion. The path depends which vim I am using
+"so when you import this file somewhere else make sure to change the path or
+"comment this code.
+">>>>!!!!!!!!! IMPORTANT !!!!!!!!!!<<<<
+" Backup directory for files
+set backupdir=/home/genti/.vimswp
+set directory=/home/genti/.vimswp
