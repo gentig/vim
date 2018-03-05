@@ -150,5 +150,5 @@ set visualbell t_vb=
 "comment this code.
 ">>>>!!!!!!!!! IMPORTANT !!!!!!!!!!<<<<
 " Backup directory for files
-set backupdir=/c/Users/genti/.vimswp
-set directory=/c/Users/genti/.vimswp
+"set backupdir=/driver/user/name/someFolder
+"set directory=/driver/user/name/someFolder
