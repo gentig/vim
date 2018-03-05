@@ -15,6 +15,7 @@ Plugin '2072/PHP-Indenting-for-VIm'
 "but if vim was not compiled with clipboard support they don't work. 
 "Plugin 'svermeulen/vim-easyclip'
 "Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/javacomplete'
 "End Plugins
 
 call vundle#end()            " required
@@ -128,6 +129,14 @@ set background=dark
 autocmd FileType php noremap! ww <Esc> :w ++ff=dos <CR>
 autocmd FileType php nnoremap ww <Esc> :w ++ff=dos <CR>
 
+"-----------------------------------------------------------
+"Annoyances
+"==========
+
+"Don't need a reminder all the time the cursor is stuck
+set visualbell t_vb=
+"-----------------------------------------------------------
+
 "I need <C-z> for stopping jobs not for undo, find other mapping for undo
 "------------------------------------------------------------------------
 "autocmd FileType php noremap! <C-z> <Esc> :u <CR> 
@@ -141,5 +150,5 @@ autocmd FileType php nnoremap ww <Esc> :w ++ff=dos <CR>
 "comment this code.
 ">>>>!!!!!!!!! IMPORTANT !!!!!!!!!!<<<<
 " Backup directory for files
-set backupdir=/home/genti/.vimswp
-set directory=/home/genti/.vimswp
+set backupdir=/c/Users/genti/.vimswp
+set directory=/c/Users/genti/.vimswp
