@@ -16,6 +16,13 @@ Plugin '2072/PHP-Indenting-for-VIm'
 "Plugin 'svermeulen/vim-easyclip'
 "Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/javacomplete'
+
+Plugin 'itchyny/lightline.vim'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'kien/ctrlp.vim'
+
 "End Plugins
 
 call vundle#end()            " required
@@ -25,7 +32,15 @@ filetype plugin indent on    " required
 set completeopt-=preview
 
 "Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+"Original sourcing of vimrc before lightline plugin
+"autocmd! bufwritepost .vimrc source %
+
+"After the lightline plugin
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END " }
+
 
 "Leader key
 let mapleader=","
@@ -53,7 +68,7 @@ set showcmd
 "Display numbers
 "---------------
 set number
-
+syntax enable
 "filetypes
 "filetype on	    " Enable filetype detection
 "filetype indent on  " Enable filetype-specific indenting
@@ -85,26 +100,48 @@ set omnifunc=syntaxcomplete#Complete
 set autoindent
 set smartindent
 
+"Mode display
+
+"Lightline plugin shows mode in a nice format
+"so we do not the default from vim to be displayed
+"-------------------------------------------------
+set noshowmode
+
+"Statusline manual
+"-----------------
+"set laststatus=2
+"set statusline=
+"set statusline+=\[%{mode()}\]
+"set statusline+=
+"set statusline+=%F
+"
+"Note: I am using lightline to do this
+
 "Indent multiple times without loosing selection
+"-----------------------------------------------
 vnoremap < <gv
 vnoremap > >gv
 "Disable wrapping, and set horizontal scroll
 "--------------------------------------------
+
+"No wrap
+"-------
 set nowrap
 
 "Set tab spaces
-
 "--------------
 "set tabstop=2
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+
 "Set java help complete 
 "----------------------
 if has("autocmd")
   autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 endif
+
 
 "Avoid adding the newline at the end of the file
 "-----------------------------------------------
@@ -116,6 +153,20 @@ endif
 "set noeol
 autocmd BufWritePre *.php set binary
 set background=dark
+
+set autoread        " Auto reload changed files
+set wildmenu        " Tab autocomplete in command mode
+set path+=**
+
+"Set cursorline for quickfix file/windows
+"Not the best way to do it but it works
+"----------------------------------------
+autocmd FileType qf set cursorline
+
+"Open quickfix window after doing grep.It shows the 
+"result of grep for seraching src code
+"--------------------------------------------------
+command! -nargs=+ Silent execute 'silent <args>' | copen | redraw!
 
 "PHP dev configuration
 "----------------------
@@ -132,10 +183,13 @@ autocmd FileType php nnoremap ww <Esc> :w ++ff=dos <CR>
 "-----------------------------------------------------------
 "Annoyances
 "==========
-
 "Don't need a reminder all the time the cursor is stuck
 set visualbell t_vb=
 "-----------------------------------------------------------
+
+"set shel for no entries error
+set shell=/bin/bash
+
 
 "I need <C-z> for stopping jobs not for undo, find other mapping for undo
 "------------------------------------------------------------------------
@@ -149,6 +203,8 @@ set visualbell t_vb=
 "so when you import this file somewhere else make sure to change the path or
 "comment this code.
 ">>>>!!!!!!!!! IMPORTANT !!!!!!!!!!<<<<
+
 " Backup directory for files
-"set backupdir=/driver/user/name/someFolder
-"set directory=/driver/user/name/someFolder
+" --------------------------
+set backupdir=/c/Users/genti/.vimswp
+set directory=/c/Users/genti/.vimswp
