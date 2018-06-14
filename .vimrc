@@ -95,6 +95,10 @@ set hlsearch
 "C-o, C-p ets
 set omnifunc=syntaxcomplete#Complete
 
+"Avoid searching all included files. It is slow
+"for autocomplete
+set complete-=i
+
 "AutoIndent
 "--------------
 set autoindent
