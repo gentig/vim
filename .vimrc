@@ -210,5 +210,5 @@ set shell=/bin/bash
 
 " Backup directory for files
 " --------------------------
-set backupdir=/c/Users/genti/.vimswp
-set directory=/c/Users/genti/.vimswp
+set backupdir=/path/to/dir
+set directory=/path/to/dir
